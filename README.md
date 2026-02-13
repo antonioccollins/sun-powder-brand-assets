@@ -15,7 +15,8 @@ brand-assets/
 ├── fonts/             ← Söhne & Söhne Breit font files
 ├── backgrounds/       ← Solid colors with tints/hues
 ├── product-shots/     ← Product photography
-└── logos/             ← Logo files
+├── logos/             ← Logo files
+└── pricing/           ← Pricing matrix (one-time & subscription)
 ```
 
 ---
@@ -42,3 +43,4 @@ See `/fonts/README.md` for usage details.
 - [x] Backgrounds
 - [x] Product shots
 - [x] Logos
+- [x] Pricing
