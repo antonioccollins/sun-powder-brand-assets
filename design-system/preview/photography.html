@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;padding:24px;background:#fff;font-family:var(--sp-font-body)}
+.grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:10px;grid-auto-rows:180px}
+.photo{border-radius:10px;overflow:hidden;background:#F3EEE7;position:relative}
+.photo img{width:100%;height:100%;object-fit:cover;display:block}
+.photo--tall{grid-row:span 2}
+.cap{position:absolute;left:10px;bottom:10px;background:rgba(255,255,255,.92);padding:4px 9px;border-radius:999px;font-family:var(--sp-font-mono);font-size:10px;color:var(--sp-navy);letter-spacing:.06em;text-transform:uppercase}
+</style>
+</head>
+<body>
+<div class="grid">
+  <div class="photo photo--tall"><img src="../assets/product/melon-sunrise-box-drink.png" alt=""><div class="cap">Hero · Melon Sunrise</div></div>
+  <div class="photo"><img src="../assets/product/melon-sunrise-box.png" alt=""><div class="cap">Melon Sunrise</div></div>
+  <div class="photo"><img src="../assets/product/lineup-3sku.png" alt=""><div class="cap">3 SKUs</div></div>
+  <div class="photo"><img src="../assets/product/lemon-lime-box-drink.png" alt=""><div class="cap">Lemon Lime</div></div>
+  <div class="photo"><img src="../assets/product/unflavored-box-drink.png" alt=""><div class="cap">Unflavored</div></div>
+</div>
+</body>
+</html>

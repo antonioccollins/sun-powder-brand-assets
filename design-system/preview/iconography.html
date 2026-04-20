@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body { margin:0; padding:32px; background:#fff; font-family: var(--sp-font-body); }
+h4 { font-family: var(--sp-font-display); font-size:12px; text-transform:uppercase; letter-spacing:.12em; color: var(--sp-muted); margin:0 0 16px; }
+.grp { margin-bottom: 36px; }
+.benefit { display:flex; gap: 18px; flex-wrap:wrap; }
+.benefit .b { text-align:center; width: 110px; background: var(--sp-bg-warm); border-radius: 12px; padding: 18px 10px; }
+.benefit .ico { width:56px; height:56px; margin: 0 auto 10px; }
+.benefit .lbl { font-family: var(--sp-font-display); font-weight:600; font-size:13px; color: var(--sp-navy); }
+.stamps { display:grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.stamps .s { border: 1px solid var(--sp-dark-navy); border-width: .675px; padding: 18px 14px; text-align:center; border-radius: 4px; }
+.stamps svg { width: 32px; height: 32px; stroke: var(--sp-orange); stroke-width: 1.6; fill: none; margin-bottom: 10px; }
+.stamps .lbl { font-family: var(--sp-font-display); font-size: 12px; font-weight:600; color: var(--sp-navy); line-height: 1.2; }
+</style>
+</head>
+<body>
+
+<div class="grp">
+  <h4>Benefit icons — the 5 R's</h4>
+  <div class="benefit">
+    <div class="b"><img class="ico" src="../assets/icons/regenerate.svg" alt=""><div class="lbl">Regenerate †</div></div>
+    <div class="b"><img class="ico" src="../assets/icons/resist.svg" alt=""><div class="lbl">Resist †</div></div>
+    <div class="b"><img class="ico" src="../assets/icons/reduce.svg" alt=""><div class="lbl">Reduce †</div></div>
+    <div class="b"><img class="ico" src="../assets/icons/reverse.svg" alt=""><div class="lbl">Reverse †</div></div>
+    <div class="b"><img class="ico" src="../assets/icons/restore.svg" alt=""><div class="lbl">Restore †</div></div>
+  </div>
+</div>
+
+<div class="grp">
+  <h4>Credibility stamps (Lucide proxy)</h4>
+  <div class="stamps">
+    <div class="s"><svg viewBox="0 0 24 24"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/><path d="M5.52 16h12.96"/></svg><div class="lbl">Third Party<br>Tested</div></div>
+    <div class="s"><svg viewBox="0 0 24 24"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M8 6l4-4 4 4"/><path d="M12 2v14"/></svg><div class="lbl">Clinically Studied<br>Ingredients</div></div>
+    <div class="s"><svg viewBox="0 0 24 24"><path d="M4 22V4a2 2 0 0 1 2-2h14l-4 7 4 7H6"/></svg><div class="lbl">Made in<br>the USA</div></div>
+    <div class="s"><svg viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M10 6h4M10 10h4M10 14h4M10 18h4"/></svg><div class="lbl">cGMP<br>Facility</div></div>
+  </div>
+</div>
+
+</body>
+</html>

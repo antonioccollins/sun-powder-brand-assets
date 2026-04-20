@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="../colors_and_type.css">
+<style>
+body{margin:0;padding:32px;background:#fff;font-family:var(--sp-font-body)}
+h4{font-family:var(--sp-font-display);font-size:11px;text-transform:uppercase;letter-spacing:.12em;color:var(--sp-muted);margin:0 0 12px}
+.row{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:22px}
+.tile{border-radius:12px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:120px;border:1px solid var(--sp-border)}
+.tile--cream{background:var(--sp-cream)}
+.tile--warm{background:var(--sp-bg-warm)}
+.tile--navy{background:var(--sp-navy);border-color:var(--sp-navy)}
+.tile--orange{background:var(--sp-orange);border-color:var(--sp-orange)}
+.tile--blue{background:var(--sp-light-blue)}
+.tile img{max-width:100%;max-height:52px;display:block}
+.lbl{font-family:var(--sp-font-mono);font-size:10px;color:var(--sp-muted);text-transform:uppercase;letter-spacing:.06em;text-align:center;margin-top:6px}
+.cell{display:flex;flex-direction:column;gap:4px}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;font-family:var(--sp-font-mono);font-size:11px;color:var(--sp-muted)}
+.rules .r{border:1px solid var(--sp-divider);border-radius:8px;padding:10px 12px;line-height:1.5}
+.rules strong{display:block;color:var(--sp-navy);font-family:var(--sp-font-display);font-size:11px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:2px}
+</style>
+</head>
+<body>
+<h4>Full lockup</h4>
+<div class="row">
+  <div class="cell"><div class="tile tile--cream"><img src="../assets/logo/logo-full-navy.svg" alt=""></div><div class="lbl">Navy · on cream</div></div>
+  <div class="cell"><div class="tile tile--warm"><img src="../assets/logo/logo-full-blue.svg" alt=""></div><div class="lbl">Brand blue · on warm</div></div>
+  <div class="cell"><div class="tile tile--navy"><img src="../assets/logo/logo-full-white.svg" alt=""></div><div class="lbl">White · on navy</div></div>
+  <div class="cell"><div class="tile tile--orange"><img src="../assets/logo/logo-full-white.svg" alt=""></div><div class="lbl">White · on orange</div></div>
+</div>
+<h4>Wordmark only · S-mark</h4>
+<div class="row">
+  <div class="cell"><div class="tile tile--cream"><img src="../assets/logo/logo-wordmark.svg" alt="" style="max-height:44px"></div><div class="lbl">Wordmark · navy</div></div>
+  <div class="cell"><div class="tile tile--blue"><img src="../assets/logo/logo-smark.svg" alt="" style="max-height:56px"></div><div class="lbl">S-mark · favicon / avatar</div></div>
+</div>
+<h4>Rules</h4>
+<div class="rules">
+  <div class="r"><strong>Clear space</strong>Equal to the height of the "S" icon on all sides.</div>
+  <div class="r"><strong>Min size · icon</strong>24 px</div>
+  <div class="r"><strong>Min size · lockup</strong>120 px wide</div>
+</div>
+</body>
+</html>

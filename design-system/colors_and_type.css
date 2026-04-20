@@ -1,0 +1,131 @@
+/* ═══════════════════════════════════════════════
+   SUN POWDER — Foundations
+   Colors · Type · Spacing · Radii · Shadow
+   ═══════════════════════════════════════════════ */
+
+/* ── Font faces ─────────────────────────────── */
+@font-face { font-family: 'Sohne'; src: url('./fonts/Sohne-Buch.otf') format('opentype'); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Sohne'; src: url('./fonts/Sohne-BuchKursiv.otf') format('opentype'); font-weight: 400; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Sohne'; src: url('./fonts/Sohne-Halbfett.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Sohne'; src: url('./fonts/Sohne-HalbfettKursiv.otf') format('opentype'); font-weight: 600; font-style: italic; font-display: swap; }
+@font-face { font-family: 'Sohne Breit'; src: url('./fonts/SohneBreit-Halbfett.otf') format('opentype'); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Sohne Breit'; src: url('./fonts/SohneBreit-Dreiviertelfett.otf') format('opentype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Sohne Mono'; src: url('./fonts/SohneMono-Leicht.otf') format('opentype'); font-weight: 300; font-style: normal; font-display: swap; }
+
+:root {
+  --sp-orange:      #FF4000;
+  --sp-amber:       #FF9C00;
+  --sp-cream:       #FFF4E8;
+  --sp-navy:        #041C72;
+  --sp-dark-navy:   #242E43;
+  --sp-light-blue:  #EBF1FF;
+
+  --sp-slate:       #3A5489;
+  --sp-cobalt:      #0142AF;
+  --sp-sky:         #6594E1;
+  --sp-periwinkle:  #A7C5F7;
+  --sp-lime:        #92C64D;
+  --sp-olive:       #D2C643;
+  --sp-gold:        #FFD769;
+  --sp-burgundy:    #791B3B;
+  --sp-coral:       #D2766A;
+  --sp-salmon:      #FF5E5E;
+  --sp-orchid:      #CF9DDA;
+  --sp-lavender:    #DFC5F2;
+  --sp-blush:       #FFDFEA;
+  --sp-ivory:       #FFF6DE;
+
+  --sp-white:       #FFFFFF;
+  --sp-bg-light:    #F9F9F7;
+  --sp-bg-warm:     #FAF6F1;
+  --sp-muted:       #6B7084;
+  --sp-border:      rgba(4, 28, 114, 0.10);
+  --sp-divider:     rgba(36, 46, 67, 0.08);
+
+  --sp-primary:     var(--sp-orange);
+  --sp-secondary:   var(--sp-navy);
+  --sp-text:        var(--sp-dark-navy);
+  --sp-text-strong: var(--sp-navy);
+  --sp-text-light:  var(--sp-cream);
+  --sp-text-muted:  var(--sp-muted);
+  --sp-bg:          var(--sp-white);
+
+  --sp-grad-heat:   linear-gradient(135deg, #FF4000 0%, #FF9C00 100%);
+  --sp-grad-heat-vert: linear-gradient(180deg, #FF2331 0%, #FF9C00 95%);
+  --sp-grad-navy-glow: radial-gradient(ellipse 80% 60% at 70% 20%, #1a4a9e 0%, #041C72 50%, #021452 100%);
+  --sp-grad-orange-glow: radial-gradient(ellipse 70% 50% at 50% 25%, #FF9C00 0%, #FF4000 60%, #E63600 100%);
+
+  --sp-font-display: 'Sohne Breit', 'Sohne', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --sp-font-body:    'Sohne', -apple-system, 'Helvetica Neue', Arial, sans-serif;
+  --sp-font-mono:    'Sohne Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  --sp-size-d1: 72px;   --sp-lh-d1: 1.05;
+  --sp-size-d2: 56px;   --sp-lh-d2: 1.08;
+  --sp-size-h1: 40px;   --sp-lh-h1: 1.10;
+  --sp-size-h2: 28px;   --sp-lh-h2: 1.15;
+  --sp-size-h3: 20px;   --sp-lh-h3: 1.30;
+  --sp-size-subhead: 18px; --sp-lh-subhead: 1.45;
+  --sp-size-body: 16px;  --sp-lh-body: 1.65;
+  --sp-size-small: 14px; --sp-lh-small: 1.55;
+  --sp-size-caption: 12px; --sp-lh-caption: 1.45;
+  --sp-size-eyebrow: 12px; --sp-lh-eyebrow: 1.20;
+  --sp-track-eyebrow: 0.15em;
+
+  --sp-s-1: 4px; --sp-s-2: 8px; --sp-s-3: 12px; --sp-s-4: 16px;
+  --sp-s-5: 24px; --sp-s-6: 32px; --sp-s-7: 48px; --sp-s-8: 64px;
+  --sp-s-9: 96px; --sp-s-10: 128px;
+
+  --sp-r-xs: 4px; --sp-r-sm: 6px; --sp-r-md: 10px;
+  --sp-r-lg: 16px; --sp-r-xl: 24px; --sp-r-pill: 999px;
+
+  --sp-shadow-xs: 0 1px 2px rgba(4,28,114,0.06);
+  --sp-shadow-sm: 0 2px 8px rgba(4,28,114,0.08);
+  --sp-shadow-md: 0 6px 24px rgba(4,28,114,0.10);
+  --sp-shadow-lg: 0 16px 48px rgba(4,28,114,0.14);
+  --sp-shadow-heat: 0 4px 16px rgba(255,64,0,0.30);
+
+  --sp-ease-out: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --sp-dur-fast: 150ms;
+  --sp-dur-base: 220ms;
+}
+
+html { color: var(--sp-text); background: var(--sp-bg); }
+body { font-family: var(--sp-font-body); font-size: var(--sp-size-body); line-height: var(--sp-lh-body); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+
+.sp-display-1, .sp-display-2, .sp-h1, .sp-h2, .sp-h3 {
+  font-family: var(--sp-font-display); font-weight: 700;
+  color: var(--sp-text-strong); letter-spacing: -0.005em; text-wrap: balance;
+}
+.sp-display-1 { font-size: var(--sp-size-d1); line-height: var(--sp-lh-d1); }
+.sp-display-2 { font-size: var(--sp-size-d2); line-height: var(--sp-lh-d2); }
+.sp-h1 { font-size: var(--sp-size-h1); line-height: var(--sp-lh-h1); }
+.sp-h2 { font-size: var(--sp-size-h2); line-height: var(--sp-lh-h2); font-weight: 600; }
+.sp-h3 { font-size: var(--sp-size-h3); line-height: var(--sp-lh-h3); font-weight: 600; }
+
+.sp-subhead { font-family: var(--sp-font-body); font-weight: 600; font-size: var(--sp-size-subhead); line-height: var(--sp-lh-subhead); color: var(--sp-text-strong); }
+.sp-body { font-size: var(--sp-size-body); line-height: var(--sp-lh-body); color: var(--sp-text); }
+.sp-small { font-size: var(--sp-size-small); line-height: var(--sp-lh-small); color: var(--sp-text-muted); }
+.sp-caption { font-size: var(--sp-size-caption); line-height: var(--sp-lh-caption); color: var(--sp-text-muted); }
+.sp-eyebrow { font-family: var(--sp-font-body); font-weight: 600; font-size: var(--sp-size-eyebrow); line-height: var(--sp-lh-eyebrow); letter-spacing: var(--sp-track-eyebrow); text-transform: uppercase; color: var(--sp-orange); }
+.sp-mono { font-family: var(--sp-font-mono); font-weight: 300; font-size: var(--sp-size-caption); letter-spacing: 0.02em; color: var(--sp-text); }
+
+.sp-btn { display: inline-flex; align-items: center; gap: 10px; font-family: var(--sp-font-body); font-weight: 600; font-size: 16px; line-height: 1; padding: 16px 28px; border-radius: var(--sp-r-sm); border: none; cursor: pointer; text-decoration: none; transition: transform var(--sp-dur-fast) var(--sp-ease-out), box-shadow var(--sp-dur-fast) var(--sp-ease-out); }
+.sp-btn--primary { background: var(--sp-grad-heat); color: #fff; box-shadow: var(--sp-shadow-xs); }
+.sp-btn--primary:hover { transform: translateY(-1px); box-shadow: var(--sp-shadow-heat); }
+.sp-btn--pill { border-radius: var(--sp-r-pill); padding: 18px 34px; font-family: var(--sp-font-display); }
+.sp-btn--solid-navy { background: var(--sp-navy); color: var(--sp-cream); }
+.sp-btn--outline { background: transparent; color: var(--sp-navy); border: 1.5px solid var(--sp-navy); }
+.sp-btn--ghost { background: transparent; color: var(--sp-navy); padding: 12px 16px; }
+
+.sp-chip { display: inline-flex; align-items: center; gap: 10px; padding: 8px 14px; border-radius: var(--sp-r-md); font-family: var(--sp-font-display); font-weight: 500; font-size: 14px; color: var(--sp-dark-navy); background: var(--sp-light-blue); }
+.sp-chip--navy { background: var(--sp-navy); color: var(--sp-cream); }
+.sp-chip--cream { background: var(--sp-cream); color: var(--sp-dark-navy); }
+
+.sp-card { background: var(--sp-white); border: 0.675px solid var(--sp-dark-navy); border-radius: var(--sp-r-md); padding: var(--sp-s-5); }
+.sp-card--soft { border: 1px solid var(--sp-border); box-shadow: var(--sp-shadow-sm); }
+
+.sp-surface-cream { background: var(--sp-cream); color: var(--sp-dark-navy); }
+.sp-surface-navy  { background: var(--sp-grad-navy-glow); color: var(--sp-cream); }
+.sp-surface-orange { background: var(--sp-grad-orange-glow); color: var(--sp-cream); }
+
+:focus-visible { outline: 2px solid var(--sp-orange); outline-offset: 3px; }

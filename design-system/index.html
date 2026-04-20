@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Sun Powder — Design System</title>
+<meta name="viewport" content="width=1440">
+<link rel="stylesheet" href="colors_and_type.css">
+<style>
+  body { margin: 0; background: var(--sp-bg-warm); }
+  .page { max-width: 1200px; margin: 0 auto; padding: 64px 32px 120px; }
+  .hero { display:grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; padding: 48px; border-radius: 24px; background: var(--sp-grad-navy-glow); color: var(--sp-cream); margin-bottom: 72px; }
+  .hero h1 { font-family: var(--sp-font-display); font-weight: 700; font-size: 72px; line-height: 1.02; margin: 18px 0 20px; color: var(--sp-cream); letter-spacing:-.015em; }
+  .hero p { font-size: 17px; line-height: 1.6; max-width: 48ch; opacity: 0.9; margin: 0; }
+  .hero__wm { font-family: var(--sp-font-display); font-weight: 700; font-size: 48px; color: var(--sp-amber); }
+  .hero__tag { font-family: var(--sp-font-display); font-size: 14px; letter-spacing:.08em; text-transform: uppercase; opacity: 0.7; }
+  section { margin-bottom: 80px; }
+  .sec-head { display:flex; align-items:baseline; justify-content:space-between; border-top: 1px solid var(--sp-divider); padding-top: 24px; margin-bottom: 28px; }
+  .sec-head h2 { font-family: var(--sp-font-display); font-weight: 700; font-size: 32px; color: var(--sp-navy); margin: 0; }
+  .sec-head .sp-mono { color: var(--sp-muted); }
+  .sw-grid { display:grid; grid-template-columns: repeat(6,1fr); gap: 14px; }
+  .sw { aspect-ratio: 0.85; border-radius: 10px; padding: 14px; display:flex; flex-direction:column; justify-content:space-between; border: 1px solid var(--sp-border); }
+  .sw .nm { font-family: var(--sp-font-display); font-weight: 700; font-size: 14px; }
+  .sw .hex { font-family: var(--sp-font-mono); font-size: 11px; opacity: 0.8; }
+  .comp-grid { display:grid; grid-template-columns: repeat(7,1fr); gap: 10px; }
+  .comp-grid .sw { padding: 10px; }
+  .type-row { display:grid; grid-template-columns: 120px 1fr 200px; gap: 28px; align-items: baseline; padding: 16px 0; border-bottom: 1px solid var(--sp-divider); }
+  .type-role, .type-spec { font-family: var(--sp-font-mono); font-size: 11px; color: var(--sp-muted); text-transform: uppercase; }
+  .type-spec { text-align:right; }
+  .surface-grid { display:grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+  .surface { aspect-ratio: 1.35; border-radius: 16px; padding: 24px; display:flex; flex-direction:column; justify-content:flex-end; }
+  .surface h4 { font-family: var(--sp-font-display); font-weight: 700; font-size: 22px; margin: 0; }
+  .surface p { margin: 6px 0 0; font-size: 13px; opacity: 0.85; }
+  .demo-row { display:flex; flex-wrap:wrap; gap: 14px; align-items:center; padding: 24px; background: #fff; border-radius: 10px; border: 1px solid var(--sp-border); margin-bottom: 20px; }
+  .demo-label { font-family: var(--sp-font-mono); font-size: 11px; color: var(--sp-muted); text-transform:uppercase; letter-spacing:.06em; margin-bottom: 8px; }
+  .benefit-row { display:grid; grid-template-columns: repeat(5,1fr); gap: 16px; }
+  .benefit-card { background: #fff; border: 1px solid var(--sp-border); border-radius: 10px; padding: 22px 18px; text-align: center; }
+  .benefit-ico { width: 58px; height: 58px; margin: 0 auto 12px; display:block; font-size: 20px; color: #fff; }
+  .benefit-lbl { font-family: var(--sp-font-display); font-weight: 600; font-size: 14px; color: var(--sp-navy); }
+  .stamps-row { display:grid; grid-template-columns: repeat(4,1fr); gap: 14px; margin-top: 20px; }
+  .stamp { border: 0.675px solid var(--sp-dark-navy); border-radius: 4px; padding: 22px 16px; text-align:center; }
+  .stamp svg { width: 34px; height: 34px; stroke: var(--sp-orange); stroke-width: 1.6; fill: none; margin-bottom: 10px; }
+  .stamp span { font-family: var(--sp-font-display); font-size: 12px; font-weight: 600; color: var(--sp-navy); line-height: 1.2; }
+  .kit-grid { display:grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .kit { background: #fff; border: 1px solid var(--sp-border); border-radius: 16px; padding: 32px; display:flex; flex-direction:column; gap: 14px; text-decoration:none; color: inherit; }
+  .kit:hover { box-shadow: var(--sp-shadow-md); }
+  .kit h3 { font-family: var(--sp-font-display); font-weight: 700; font-size: 22px; color: var(--sp-navy); margin: 0; }
+  .kit p { margin: 0; font-size: 14px; line-height: 1.6; }
+  .footer { padding: 32px 0; border-top: 1px solid var(--sp-divider); display:flex; justify-content:space-between; font-family: var(--sp-font-mono); font-size: 11px; color: var(--sp-muted); text-transform:uppercase; letter-spacing:.06em; }
+  .photo-grid { display:grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 12px; grid-auto-rows: 260px; }
+  .photo { border-radius: 14px; overflow:hidden; background:#F3EEE7; position:relative; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display:block; }
+  .photo--tall { grid-row: span 2; }
+  .photo__cap { position:absolute; left:14px; bottom:14px; background: rgba(255,255,255,0.92); padding: 6px 12px; border-radius: 999px; font-family: var(--sp-font-mono); font-size: 11px; color: var(--sp-navy); letter-spacing:.06em; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<div class="page">
+  <div class="hero">
+    <div>
+      <div class="sp-eyebrow" style="color:var(--sp-amber)">Brand · Design System · UI kits</div>
+      <h1>Sun Powder design system</h1>
+      <p>Whitepaper meets beach-sign. A dermatologist-formulated drinkable skin defense brand: sober navy-on-cream beside loud heat-orange UV warnings. Voice is calm, clinical, empowering.</p>
+    </div>
+    <div>
+      <img src="assets/logo/logo-full-white.svg" alt="Sun Powder" style="width:320px;max-width:100%;display:block;margin-bottom:6px">
+    </div>
+  </div>
+
+  <section>
+    <div class="sec-head"><h2>Logo</h2><span class="sp-mono">Lockup · wordmark · S-mark</span></div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:12px">
+      <div style="background:var(--sp-cream);border-radius:12px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:120px;border:1px solid var(--sp-border)"><img src="assets/logo/logo-full-navy.svg" alt="" style="max-height:52px;max-width:100%"></div>
+      <div style="background:var(--sp-navy);border-radius:12px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:120px"><img src="assets/logo/logo-full-white.svg" alt="" style="max-height:52px;max-width:100%"></div>
+      <div style="background:var(--sp-orange);border-radius:12px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:120px"><img src="assets/logo/logo-full-white.svg" alt="" style="max-height:52px;max-width:100%"></div>
+      <div style="background:var(--sp-light-blue);border-radius:12px;padding:28px;display:flex;align-items:center;justify-content:center;min-height:120px;border:1px solid var(--sp-border)"><img src="assets/logo/logo-smark.svg" alt="" style="max-height:64px"></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Primary palette</h2><span class="sp-mono">6 core colors</span></div>
+    <div class="sw-grid">
+      <div class="sw" style="background:#FF4000;color:#fff"><div class="sp-mono" style="color:rgba(255,255,255,.8)">Primary</div><div><div class="nm">Orange</div><div class="hex">#FF4000</div></div></div>
+      <div class="sw" style="background:#FF9C00;color:#242E43"><div class="sp-mono">Accent</div><div><div class="nm">Amber</div><div class="hex">#FF9C00</div></div></div>
+      <div class="sw" style="background:#FFF4E8;color:#242E43"><div class="sp-mono">Surface</div><div><div class="nm">Cream</div><div class="hex">#FFF4E8</div></div></div>
+      <div class="sw" style="background:#041C72;color:#FFF4E8"><div class="sp-mono" style="color:rgba(255,244,232,.7)">Headlines</div><div><div class="nm">Navy</div><div class="hex">#041C72</div></div></div>
+      <div class="sw" style="background:#242E43;color:#FFF4E8"><div class="sp-mono" style="color:rgba(255,244,232,.7)">Body</div><div><div class="nm">Dark Navy</div><div class="hex">#242E43</div></div></div>
+      <div class="sw" style="background:#EBF1FF;color:#041C72"><div class="sp-mono">Cool surface</div><div><div class="nm">Light Blue</div><div class="hex">#EBF1FF</div></div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Complementary palette</h2><span class="sp-mono">Used sparingly</span></div>
+    <div class="comp-grid">
+      <div class="sw" style="background:#3A5489;color:#fff"><div class="nm">Slate</div><div class="hex">#3A5489</div></div>
+      <div class="sw" style="background:#0142AF;color:#fff"><div class="nm">Cobalt</div><div class="hex">#0142AF</div></div>
+      <div class="sw" style="background:#6594E1;color:#fff"><div class="nm">Sky</div><div class="hex">#6594E1</div></div>
+      <div class="sw" style="background:#A7C5F7;color:#041C72"><div class="nm">Periwinkle</div><div class="hex">#A7C5F7</div></div>
+      <div class="sw" style="background:#92C64D;color:#fff"><div class="nm">Lime</div><div class="hex">#92C64D</div></div>
+      <div class="sw" style="background:#D2C643;color:#242E43"><div class="nm">Olive</div><div class="hex">#D2C643</div></div>
+      <div class="sw" style="background:#FFD769;color:#242E43"><div class="nm">Gold</div><div class="hex">#FFD769</div></div>
+      <div class="sw" style="background:#791B3B;color:#fff"><div class="nm">Burgundy</div><div class="hex">#791B3B</div></div>
+      <div class="sw" style="background:#D2766A;color:#fff"><div class="nm">Coral</div><div class="hex">#D2766A</div></div>
+      <div class="sw" style="background:#FF5E5E;color:#fff"><div class="nm">Salmon</div><div class="hex">#FF5E5E</div></div>
+      <div class="sw" style="background:#CF9DDA;color:#fff"><div class="nm">Orchid</div><div class="hex">#CF9DDA</div></div>
+      <div class="sw" style="background:#DFC5F2;color:#242E43"><div class="nm">Lavender</div><div class="hex">#DFC5F2</div></div>
+      <div class="sw" style="background:#FFDFEA;color:#242E43"><div class="nm">Blush</div><div class="hex">#FFDFEA</div></div>
+      <div class="sw" style="background:#FFF6DE;color:#242E43"><div class="nm">Ivory</div><div class="hex">#FFF6DE</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Surfaces &amp; gradients</h2><span class="sp-mono">Heat · Navy glow · Orange glow</span></div>
+    <div class="surface-grid">
+      <div class="surface sp-surface-cream" style="color:var(--sp-dark-navy)"><div class="sp-eyebrow">Whitepaper</div><h4>Cream surface</h4><p>#FFF4E8 · long-form content, pack back</p></div>
+      <div class="surface sp-surface-navy"><div class="sp-eyebrow" style="color:var(--sp-amber)">Premium</div><h4>Navy glow</h4><p>Radial highlight · hero, founder story</p></div>
+      <div class="surface sp-surface-orange"><div class="sp-eyebrow" style="color:var(--sp-cream)">Heat</div><h4>Orange glow</h4><p>Sun-flare · product pack, pricing</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Typography</h2><span class="sp-mono">Söhne Breit · Söhne · Söhne Mono</span></div>
+    <div class="type-row"><div class="type-role">Display 1</div><div class="sp-display-1">Stay out longer</div><div class="type-spec">Breit · 72 / 75</div></div>
+    <div class="type-row"><div class="type-role">Display 2</div><div class="sp-display-2">Skin stronger, outdoors longer</div><div class="type-spec">Breit · 56 / 60</div></div>
+    <div class="type-row"><div class="type-role">H1</div><div class="sp-h1">Developed by dermatologists, not influencers</div><div class="type-spec">Breit · 40 / 44</div></div>
+    <div class="type-row"><div class="type-role">H2</div><div class="sp-h2">Here's what no one tells you</div><div class="type-spec">Söhne · 28 / 32</div></div>
+    <div class="type-row"><div class="type-role">Body</div><div class="sp-body" style="margin:0">You wear sunscreen. But the sun still reaches past the bottle.</div><div class="type-spec">Söhne · 16 / 26</div></div>
+    <div class="type-row"><div class="type-role">Eyebrow</div><div class="sp-eyebrow">Skincare from within</div><div class="type-spec">Söhne · 12 · 15% tracked</div></div>
+    <div class="type-row"><div class="type-role">Mono</div><div class="sp-mono">#FF4000 · UV 08 · EXTREME</div><div class="type-spec">Mono · 12 · 300</div></div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Iconography</h2><span class="sp-mono">5 R's · credibility stamps</span></div>
+    <div class="demo-label">Benefit icons — the 5 R's</div>
+    <div class="benefit-row">
+      <div class="benefit-card"><img class="benefit-ico" src="assets/icons/regenerate.svg" alt=""><div class="benefit-lbl">Regenerate †</div></div>
+      <div class="benefit-card"><img class="benefit-ico" src="assets/icons/resist.svg" alt=""><div class="benefit-lbl">Resist †</div></div>
+      <div class="benefit-card"><img class="benefit-ico" src="assets/icons/reduce.svg" alt=""><div class="benefit-lbl">Reduce †</div></div>
+      <div class="benefit-card"><img class="benefit-ico" src="assets/icons/reverse.svg" alt=""><div class="benefit-lbl">Reverse †</div></div>
+      <div class="benefit-card"><img class="benefit-ico" src="assets/icons/restore.svg" alt=""><div class="benefit-lbl">Restore †</div></div>
+    </div>
+    <div class="stamps-row">
+      <div class="stamp"><svg viewBox="0 0 24 24"><path d="M10 2v7.31"/><path d="M14 9.3V1.99"/><path d="M8.5 2h7"/><path d="M14 9.3a6.5 6.5 0 1 1-4 0"/></svg><span>Third Party<br>Tested</span></div>
+      <div class="stamp"><svg viewBox="0 0 24 24"><path d="M6 18h8"/><path d="M3 22h18"/><path d="M14 22a7 7 0 1 0 0-14h-1"/><path d="M12 2v14"/></svg><span>Clinically Studied<br>Ingredients</span></div>
+      <div class="stamp"><svg viewBox="0 0 24 24"><path d="M4 22V4a2 2 0 0 1 2-2h14l-4 7 4 7H6"/></svg><span>Made in<br>the USA</span></div>
+      <div class="stamp"><svg viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18"/><path d="M10 6h4M10 10h4M10 14h4"/></svg><span>cGMP<br>Facility</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Components</h2><span class="sp-mono">Buttons · chips · cards</span></div>
+    <div class="demo-label">Buttons</div>
+    <div class="demo-row">
+      <button class="sp-btn sp-btn--primary sp-btn--pill">Shop Sun Powder →</button>
+      <button class="sp-btn sp-btn--primary">Add to Cart</button>
+      <button class="sp-btn sp-btn--solid-navy">Learn the science</button>
+      <button class="sp-btn sp-btn--outline">Read study</button>
+      <button class="sp-btn sp-btn--ghost">Ingredients</button>
+    </div>
+    <div class="demo-label">Chips</div>
+    <div class="demo-row">
+      <span class="sp-chip"><img src="assets/icons/regenerate.svg" alt="" style="width:18px;height:18px">Regenerate †</span>
+      <span class="sp-chip"><img src="assets/icons/resist.svg" alt="" style="width:18px;height:18px">Resist †</span>
+      <span class="sp-chip"><img src="assets/icons/reduce.svg" alt="" style="width:18px;height:18px">Reduce †</span>
+      <span class="sp-chip sp-chip--navy">Third Party Tested</span>
+      <span class="sp-chip sp-chip--cream">cGMP Facility</span>
+    </div>
+    <div class="demo-label">Cards</div>
+    <div class="demo-row" style="align-items:stretch">
+      <div class="sp-card" style="flex:1;border-radius:16px">
+        <div class="sp-eyebrow" style="margin-bottom:10px">Whitepaper</div>
+        <h3 class="sp-h3" style="margin:0 0 8px">Clinically Studied Ingredients</h3>
+        <p class="sp-body" style="margin:0;font-size:14px">Eight antioxidants with human clinical data for photoprotection.†</p>
+      </div>
+      <div class="sp-card sp-card--soft" style="flex:1;border-radius:16px">
+        <div class="sp-eyebrow" style="color:var(--sp-navy);margin-bottom:10px">Product</div>
+        <h3 class="sp-h3" style="margin:0 0 4px">30-day · Melon Sunrise</h3>
+        <p class="sp-mono" style="margin:0 0 14px;color:var(--sp-muted)">$54.00 · $1.80 / day</p>
+        <button class="sp-btn sp-btn--primary">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Photography</h2><span class="sp-mono">Product · warm studio · full color SKUs</span></div>
+    <div class="photo-grid">
+      <div class="photo photo--tall"><img src="assets/product/melon-sunrise-box-drink.png" alt="Melon Sunrise box with iced drink"><div class="photo__cap">Hero · Melon Sunrise</div></div>
+      <div class="photo"><img src="assets/product/melon-sunrise-box.png" alt="Melon Sunrise box closeup"><div class="photo__cap">PDP · Melon Sunrise</div></div>
+      <div class="photo"><img src="assets/product/lineup-3sku.png" alt="Three SKU lineup with boxes and sticks"><div class="photo__cap">Lineup · 3 SKUs</div></div>
+      <div class="photo"><img src="assets/product/lemon-lime-box-drink.png" alt="Lemon Lime box with drink"><div class="photo__cap">Lemon Lime</div></div>
+      <div class="photo"><img src="assets/product/unflavored-box-drink.png" alt="Unflavored box with drink"><div class="photo__cap">Unflavored</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>UI kits</h2><span class="sp-mono">Surfaces in the wild</span></div>
+    <div class="kit-grid">
+      <a class="kit" href="ui_kits/ecommerce/pdp.html">
+        <div class="sp-eyebrow">Ecommerce</div>
+        <h3>Product detail page</h3>
+        <p>PDP with gallery, benefit chips, supply tiers, subscribe toggle, ingredient grid. Built on the token sheet.</p>
+      </a>
+    </div>
+  </section>
+
+  <div class="footer">
+    <span>Sun Powder · Design System · v 1.0</span>
+    <span>drinksunpowder.com</span>
+  </div>
+</div>
+</body>
+</html>
